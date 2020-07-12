@@ -1,0 +1,33 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { Element } from '../Element'
+
+const defaultStyle = `
+	border-radius: 5px;
+	outline: none;
+	&:hover {
+		transform: scale(1.01, 1.01);
+	}
+`
+
+const Input = ({...props})=>{
+	return (
+		<Element
+			as='input'
+			type={props.type}
+			css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
+			{...props}>
+				{props.children}
+		</Element>
+	)
+}
+
+Input.propTypes = {
+	type: PropTypes.string.isRequired,
+	customStyle: PropTypes.string,
+	children: PropTypes.node,
+	value: PropTypes.any.isRequired,
+	onChange: PropTypes.func.isRequired
+}
+
+export default Input

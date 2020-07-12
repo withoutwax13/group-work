@@ -1,12 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import { Provider } from 'react-redux'
 
-const App = () => {
-	return (
-		<div>
-			App
-		</div>
-	)
-}
+import store from './store'
 
-ReactDOM.render(<App/>, document.querySelector('#root'))
+import App from './App'
+
+
+ReactDOM.render(
+	<Provider store={store}>
+		<App/>
+	</Provider>, 
+	document.querySelector('#root')
+)
