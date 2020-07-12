@@ -1,8 +1,8 @@
 import React from 'react'
 
 import { Element } from '../Element'
-import Menu from '../Menu'
-import Footer from './Footer'
+import Header from '../Header'
+import Footer from '../Footer'
 
 const defaultStyle = `
 	display: flex;
@@ -15,7 +15,7 @@ const Integrated = ({...props}) => {
 	return (
 		<Element
 			css={defaultStyle}>
-				<Menu/>
+				<Header/>
 					{props.children}
 				<Footer/>
 		</Element>

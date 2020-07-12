@@ -1,7 +1,8 @@
 export const device = {
-	Mobile: '320px',
-	Tablet: '481px',
-	TabletHD: '768px',
-	Desktop: '1025px',
-	DesktopHD: '1281px'
+	MobilePortrait: '@media (min-width: 320px) and (max-width: 480px)',
+	MobileLandscape: '@media (min-width: 481px) and (max-width: 767px)',
+	Tablet: '@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape)',
+	TabletHD: '@media (min-width: 768px) and (max-width: 1024px)',
+	Desktop: '@media (min-width: 1025px) and (max-width: 1280px)',
+	DesktopHD: '@media (min-width: 1281px)'
 }

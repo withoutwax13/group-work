@@ -2,16 +2,13 @@ import React from 'react'
 
 import { Element } from '../../components/Element'
 
-const defaultStyle = ``
-
-const CreateAccount = ({...props}) => {
+const SignIn = ({...props}) => {
 	return (
 		<Element
-			css={defaultStyle}
 			{...props}>
-			CreateAccount
+				SignIn
 		</Element>
 	)
 }
 
-export default CreateAccount
+export default SignIn

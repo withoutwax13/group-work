@@ -8,14 +8,19 @@ const defaultStyle = `
 	&:hover {
 		transform: scale(1.01, 1.01);
 	}
+	width: 100%;
 `
 
 const Input = ({...props})=>{
 	return (
 		<Element
 			as='input'
-			type={props.type}
+			type='text'
 			css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
+			paddingLeft='5px'
+			paddingRight='5px'
+			paddingTop='2px'
+			paddingBottom='2px'
 			{...props}>
 				{props.children}
 		</Element>
