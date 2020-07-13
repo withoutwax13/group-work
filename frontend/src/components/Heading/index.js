@@ -4,6 +4,9 @@ import { Element } from '../Element'
 
 const defaultStyle = `
 	font-family: 'Courier New';
+	outline: none;
+	color: black;
+	text-decoration: none;
 `
 
 const Heading = ({...props}) => {

@@ -38,7 +38,7 @@ const Button = ({...props})=>{
 	return (
 		<Element 
 			as={props.to || props.href ? Link : 'button'}
-			css={styleVariants[props.type] + commonStyles}
+			css={props.customStyle ? styleVariants[props.type] + commonStyles + props.customStyle : styleVariants[props.type] + commonStyles}
 			paddingLeft='10px'
 			paddingRight='10px'
 			{...props}>
@@ -51,7 +51,8 @@ Button.propTypes = {
 	to: PropTypes.string,
 	href: PropTypes.string,
 	type: PropTypes.string.isRequired,
-	children: PropTypes.node
+	children: PropTypes.node,
+	customStyle: PropTypes.string
 }
 
 export default Button

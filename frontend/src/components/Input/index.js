@@ -19,8 +19,8 @@ const Input = ({...props})=>{
 			css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
 			paddingLeft='5px'
 			paddingRight='5px'
-			paddingTop='2px'
-			paddingBottom='2px'
+			paddingTop='3px'
+			paddingBottom='3px'
 			{...props}>
 				{props.children}
 		</Element>

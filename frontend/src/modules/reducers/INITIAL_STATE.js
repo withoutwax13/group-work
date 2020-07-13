@@ -1,1 +1,1 @@
-export const CLIENT_LOG_INITIAL = true
+export const CLIENT_LOG_INITIAL = false
