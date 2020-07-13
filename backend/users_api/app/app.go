@@ -1,8 +1,15 @@
 package app
 
-import "fmt"
 
-// StartApplication is called by main.go and starts the microservice.
+import (
+	"github.com/gin-gonic/gin"
+)
+
+var (
+	router = gin.Default()
+)
+
+
 func StartApplication() {
-	fmt.Println("This is where uses microservice starts")
+	router.Run()
 }
