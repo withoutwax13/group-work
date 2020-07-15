@@ -6,17 +6,19 @@ import (
 	"github.com/gin-gonic/gin"
 	"github.com/group-work/backend/users_api/domain"
 	"github.com/group-work/backend/users_api/services"
+	"github.com/group-work/backend/users_api/utils/errors"
 )
 
 func CreateUser(c *gin.Context) {
 	var user domain.User
 	if err := c.ShouldBindJSON(&user); err != nil {
-		// TODO: handle err.
+		restError := errors.BadRequestError("Bad JSON")
+		c.JSON(restError.Status, *restError)
 		return
 	}
-	result, err := services.CreateUser(&user)
-	if err != nil {
-		// TODO: handle err.
+	result, restError := services.CreateUser(&user)
+	if restError != nil {
+		c.JSON(restError.Status, *restError)
 		return
 	}
 	c.JSON(http.StatusCreated, *result)
