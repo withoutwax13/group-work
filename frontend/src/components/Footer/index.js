@@ -35,9 +35,9 @@ Footer.propTypes = {
 	IS_CLIENT_LOGGED: PropTypes.bool.isRequired
 }
 
-const mapStateToProps = ({IS_CLIENT_LOGGED}) => {
+const mapStateToProps = ({CLIENT_LOG_DATA}) => {
 	return {
-		IS_CLIENT_LOGGED: IS_CLIENT_LOGGED
+		IS_CLIENT_LOGGED: CLIENT_LOG_DATA.isSignedIn
 	}
 }
 

@@ -9,6 +9,7 @@ import Integrated from '../components/Integrated'
 
 // Pages
 import Landing from '../pages/Landing'
+import Home from '../pages/Home'
 
 const App = ({IS_CLIENT_LOGGED}) => {
 	return (
@@ -16,7 +17,7 @@ const App = ({IS_CLIENT_LOGGED}) => {
 			<BrowserRouter>
 				<Integrated>
 				<Switch>
-					<Route exact path='/' component={IS_CLIENT_LOGGED ? null : Landing}/>
+					<Route exact path='/' component={IS_CLIENT_LOGGED ? Home : Landing}/>
 					<Route component={Landing}/>
 				</Switch>
 				</Integrated>
@@ -29,9 +30,9 @@ App.propTypes = {
 	IS_CLIENT_LOGGED: PropTypes.bool.isRequired
 }
 
-const mapStateToProps = ({IS_CLIENT_LOGGED}) => {
+const mapStateToProps = ({CLIENT_LOG_DATA}) => {
 	return {
-		IS_CLIENT_LOGGED
+		IS_CLIENT_LOGGED: CLIENT_LOG_DATA.isSignedIn
 	}
 }
 

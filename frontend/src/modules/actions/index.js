@@ -1,13 +1,27 @@
 import { LOG_CLIENT, UNLOG_CLIENT } from '../actionTypes'
 
-export const logClient = () => {
+export const unlogClient = () => {
 	return {
-		type: LOG_CLIENT
+		type: UNLOG_CLIENT,
+		payload: {
+			isSignedIn: false,
+			signedInId: null,
+			signedInName: null,
+			signedInEmail: null,
+			signedInImageUrl: null
+		}
 	}
 }
 
-export const unlogClient = () => {
+export const logClient = (id, name, email, imageURL) => {
 	return {
-		type: UNLOG_CLIENT
+		type: LOG_CLIENT,
+		payload: {
+			isSignedIn: true,
+			signedInId: id,
+			signedInName: name,
+			signedInEmail: email,
+			signedInImageUrl: imageURL
+		}
 	}
 }

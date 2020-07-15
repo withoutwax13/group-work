@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
@@ -7,7 +7,6 @@ import { logClient, unlogClient } from '../../modules/actions'
 import { Element } from '../Element'
 import Search from './Search'
 import Navigation from '../Navigation'
-import Button from '../Button'
 
 const defaultStyle = `
 	display: flex;
@@ -16,15 +15,54 @@ const defaultStyle = `
 `
 
 const Menu = ({...props}) => {
-	if (props.IS_CLIENT_LOGGED){
+
+	const { IS_CLIENT_LOGGED, logClient, unlogClient, customStyle, ...rest } = props
+	const [ auth, setAuth ] = useState(null)
+
+	useEffect(()=>{
+		window.gapi.load('client:auth2', ()=>{
+			window.gapi.client.init({
+				clientId: '664701191461-7ch1hbjrg0n9rnvhtrl9pft8b1mc3d66.apps.googleusercontent.com',
+				scope: 'email'
+			}).then(()=>{
+				setAuth(window.gapi.auth2.getAuthInstance())
+				onAuthChange(auth.isSignedIn.get())
+				auth.isSignedIn.listen(onAuthChange)
+			})
+		})
+	}, [auth])
+
+	const onAuthChange = (isSignedIn) => {
+		if (isSignedIn){
+			logClient(
+								auth.currentUser.get().getBasicProfile().getId(), 
+								auth.currentUser.get().getBasicProfile().getName(), 
+								auth.currentUser.get().getBasicProfile().getEmail(), 
+								auth.currentUser.get().getBasicProfile().getImageUrl()
+							)
+		} else {
+			unlogClient()
+		}
+	}
+
+	const onSignInClick = () => {
+		auth.signIn()
+	}
+
+	const onSignOutClick = () => {
+		auth.signOut()
+	}
+	
+	if (IS_CLIENT_LOGGED){
 		return (
 			<Element
-				css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
-				{...props}>
+				css={customStyle ? defaultStyle + customStyle : defaultStyle}
+				{...rest}>
 					<Search/>
 					<Navigation 
-						link to='/'
-						onClick={()=>props.unlogClient()} 
+						semantic='link' 
+						to='/'
+						onClick={onSignOutClick} 
 						customStyle='border-radius: 5px; background-color: #dedad7; color: black; &:hover{ background-color: black; color: #dedad7; }'>
 							LOGOUT
 					</Navigation>
@@ -34,15 +72,17 @@ const Menu = ({...props}) => {
 	else {
 		return (
 			<Element
-				css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
-				{...props}>
-					<Navigation 
+				css={customStyle ? defaultStyle + customStyle : defaultStyle}
+				{...rest}>
+					<Navigation
+						semantic='a' 
 						href='https://github.com/withoutwax13/group-work'>
 							about
 					</Navigation>
 					<Navigation 
-						link to='/'
-						onClick={()=>props.logClient()} 
+						semantic='link' 
+						to='/'
+						onClick={onSignInClick} 
 						customStyle='border-radius: 5px; background-color: #dedad7; color: black; &:hover{ background-color: black; color: #dedad7; }'>
 							LOGIN
 					</Navigation>
@@ -57,9 +97,9 @@ Menu.propTypes = {
 	logClient: PropTypes.func.isRequired
 }
 
-const mapStateToProps = ({IS_CLIENT_LOGGED}) => {
+const mapStateToProps = ({CLIENT_LOG_DATA}) => {
 	return {
-		IS_CLIENT_LOGGED
+		IS_CLIENT_LOGGED: CLIENT_LOG_DATA.isSignedIn
 	}
 }
 

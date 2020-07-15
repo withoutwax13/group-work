@@ -11,16 +11,17 @@ const defaultStyle = `
 	text-decoration: none;
 `
 
-const Navigation = ({...props}) => {
+const Navigation = (props) => {
+	const { semantic, customStyle, children, ...rest } = props
 	return (
 		<Element
-			as={props.link ? Link : 'a'}
+			as={semantic === 'link' ? Link : 'a'}
 			padding='7px'
-			marginLeft='7px'
-			marginRight='7px'
-			css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
-			{...props}>
-				{props.children}
+			marginleft='7px'
+			marginright='7px'
+			css={customStyle ? defaultStyle + customStyle : defaultStyle}
+			{...rest}>
+				{children}
 		</Element>
 	)
 }
@@ -29,7 +30,8 @@ Navigation.propTypes = {
 	children: PropTypes.node,
 	customStyle: PropTypes.string,
 	to: PropTypes.string,
-	href: PropTypes.string
+	href: PropTypes.string,
+	semantic: PropTypes.string.isRequired
 }
 
 export default Navigation

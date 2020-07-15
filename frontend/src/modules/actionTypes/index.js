@@ -1,2 +1,3 @@
 export const LOG_CLIENT = 'LOG_CLIENT'
 export const UNLOG_CLIENT = 'UNLOG_CLIENT'
+export const UPDATE_CLIENT_LOG_DATA = 'UPDATE_CLIENT_LOG_DATA'

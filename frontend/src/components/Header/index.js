@@ -23,10 +23,10 @@ const Header = ({...props}) => {
 	return (
 		<Element
 			css={defaultStyle}
-			paddingLeft='5%'
-			paddingRight='5%'
-			paddingTop='10px'
-			paddingBottom='10px'
+			paddingleft='5%'
+			paddingright='5%'
+			paddingtop='10px'
+			paddingbottom='10px'
 			{...props}>
 				<Heading 
 					semantic={Link}

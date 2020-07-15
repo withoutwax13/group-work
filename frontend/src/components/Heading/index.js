@@ -9,19 +9,20 @@ const defaultStyle = `
 	text-decoration: none;
 `
 
-const Heading = ({...props}) => {
+const Heading = (props) => {
+	const { semantic, customStyle, children, ...rest } = props
 	return (
 		<Element
-			as={props.semantic || 'h4'}
-			css={props.customStyle ? defaultStyle + props.customStyle : defaultStyle}
-			{...props}>
-				{props.children}
+			as={semantic || 'h4'}
+			css={customStyle ? defaultStyle + customStyle : defaultStyle}
+			{...rest}>
+				{children}
 		</Element>
 	)
 }
 
 Heading.propTypes = {
-	semantic: PropTypes.string,
+	semantic: PropTypes.any,
 	customStyle: PropTypes.string,
 	children: PropTypes.node
 }

@@ -2,15 +2,15 @@ import styled from 'styled-components'
 
 export const Element = styled.div`
 	margin: ${(props)=>isPropProvided(props.margin)};
-	margin-top: ${(props)=>isPropProvided(props.marginTop)};
-	margin-bottom: ${(props)=>isPropProvided(props.marginBottom)};
-	margin-left: ${(props)=>isPropProvided(props.marginLeft)};
-	margin-right: ${(props)=>isPropProvided(props.marginRight)};
+	margin-top: ${(props)=>isPropProvided(props.margintop)};
+	margin-bottom: ${(props)=>isPropProvided(props.marginbottom)};
+	margin-left: ${(props)=>isPropProvided(props.marginleft)};
+	margin-right: ${(props)=>isPropProvided(props.marginright)};
 	padding: ${(props)=>isPropProvided(props.padding)};
-	padding-top: ${(props)=>isPropProvided(props.paddingTop)};
-	padding-bottom: ${(props)=>isPropProvided(props.paddingBottom)};
-	padding-left: ${(props)=>isPropProvided(props.paddingLeft)};
-	padding-right: ${(props)=>isPropProvided(props.paddingRight)};
+	padding-top: ${(props)=>isPropProvided(props.paddingtop)};
+	padding-bottom: ${(props)=>isPropProvided(props.paddingbottom)};
+	padding-left: ${(props)=>isPropProvided(props.paddingleft)};
+	padding-right: ${(props)=>isPropProvided(props.paddingright)};
 	${(props)=>props.css || ``}
 `
 

@@ -25,6 +25,12 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <link rel="stylesheet" type="text/css" href="%PUBLIC_URL%/index.css">
+
+    <!-- Script below should be the original script but I encounter some bugs using it -->
+    <!-- <script src="https://apis.google.com/js/platform.js?onload=myFunc" async defer></script> -->
+    <!--  So I decided to implement the script below as recommended on a forum discussing this problem -->
+    <script type="text/javascript" src="https://apis.google.com/js/api:client.js?onLoad=onGoogleScriptLoaded"></script>
+
     <title>group-work || work with groups</title>
   </head>
   <body>
