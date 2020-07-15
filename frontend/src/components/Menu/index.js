@@ -16,6 +16,9 @@ const defaultStyle = `
 
 const Menu = ({...props}) => {
 
+	// temporary implementation of token
+	const token = window.localStorage.getItem('token')
+
 	const { IS_CLIENT_LOGGED, logClient, unlogClient, customStyle, ...rest } = props
 	const [ auth, setAuth ] = useState(null)
 
@@ -53,7 +56,7 @@ const Menu = ({...props}) => {
 		auth.signOut()
 	}
 	
-	if (IS_CLIENT_LOGGED){
+	if (token){
 		return (
 			<Element
 				css={customStyle ? defaultStyle + customStyle : defaultStyle}
