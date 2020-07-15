@@ -16,11 +16,8 @@ const defaultStyle = `
 
 const Menu = ({...props}) => {
 
-	// temporary implementation of token
-	const token = window.localStorage.getItem('token')
-
 	const { IS_CLIENT_LOGGED, logClient, unlogClient, customStyle, ...rest } = props
-	const [ auth, setAuth ] = useState(null)
+	let auth = {}
 
 	useEffect(()=>{
 		window.gapi.load('client:auth2', ()=>{
@@ -28,12 +25,12 @@ const Menu = ({...props}) => {
 				clientId: '664701191461-7ch1hbjrg0n9rnvhtrl9pft8b1mc3d66.apps.googleusercontent.com',
 				scope: 'email'
 			}).then(()=>{
-				setAuth(window.gapi.auth2.getAuthInstance())
+				auth = window.gapi.auth2.getAuthInstance()
 				onAuthChange(auth.isSignedIn.get())
 				auth.isSignedIn.listen(onAuthChange)
 			})
 		})
-	}, [auth])
+	})
 
 	const onAuthChange = (isSignedIn) => {
 		if (isSignedIn){
@@ -42,7 +39,7 @@ const Menu = ({...props}) => {
 								auth.currentUser.get().getBasicProfile().getName(), 
 								auth.currentUser.get().getBasicProfile().getEmail(), 
 								auth.currentUser.get().getBasicProfile().getImageUrl()
-							)
+						)
 		} else {
 			unlogClient()
 		}
@@ -56,7 +53,7 @@ const Menu = ({...props}) => {
 		auth.signOut()
 	}
 	
-	if (token){
+	if (IS_CLIENT_LOGGED){
 		return (
 			<Element
 				css={customStyle ? defaultStyle + customStyle : defaultStyle}
@@ -95,7 +92,7 @@ const Menu = ({...props}) => {
 }
 
 Menu.propTypes = {
-	IS_CLIENT_LOGGED: PropTypes.bool.isRequired,
+	IS_CLIENT_LOGGED: PropTypes.bool,
 	unlogClient: PropTypes.func.isRequired,
 	logClient: PropTypes.func.isRequired
 }

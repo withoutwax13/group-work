@@ -13,15 +13,12 @@ import Home from '../pages/Home'
 
 const App = ({IS_CLIENT_LOGGED}) => {
 
-	// temporary implementation of token
-	const token = window.localStorage.getItem('token')
-
 	return (
 		<Element>
 			<BrowserRouter>
 				<Integrated>
 				<Switch>
-					<Route exact path='/' component={ token ? Home : Landing}/>
+					<Route exact path='/' component={ IS_CLIENT_LOGGED ? Home : Landing}/>
 					<Route component={Landing}/>
 				</Switch>
 				</Integrated>
@@ -31,7 +28,7 @@ const App = ({IS_CLIENT_LOGGED}) => {
 }
 
 App.propTypes = {
-	IS_CLIENT_LOGGED: PropTypes.bool.isRequired
+	IS_CLIENT_LOGGED: PropTypes.bool
 }
 
 const mapStateToProps = ({CLIENT_LOG_DATA}) => {

@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import device from '../../utils/responsiveBreakpoints'
 import { Element } from '../Element'
 
 const defaultStyle = () => {
@@ -15,15 +14,32 @@ const defaultStyle = () => {
 
 const ClientCard = ({...props}) => {
 
-	const { customStyle, ...rest } = props
+	const { customStyle, CLIENT, ...rest } = props
 
-	return (
-		<Element
-			css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
-			{...rest}>
-				ClientCard
-		</Element>
-	)
+	if (CLIENT) {
+		return (
+			<Element
+				css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
+				{...rest}>
+					{CLIENT.signedInName}
+			</Element>
+		)
+	}
+	else {
+		return (
+			<Element
+				css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
+				{...rest}>
+					Loading...
+			</Element>
+		)
+	}
 }
 
-export default connect(null)(ClientCard)
+const mapStateToProps = ({CLIENT_LOG_DATA}) => {
+	return {
+		CLIENT: CLIENT_LOG_DATA
+	}
+}
+
+export default connect(mapStateToProps)(ClientCard)

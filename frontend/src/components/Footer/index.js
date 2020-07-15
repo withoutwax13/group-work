@@ -20,11 +20,12 @@ const defaultStyle = `
 `
 
 const Footer = ({...props})=>{
-	if (props.IS_CLIENT_LOGGED) 
+	const { customStyle, IS_CLIENT_LOGGED, ...rest } = props
+	if (IS_CLIENT_LOGGED) 
 		return (
 			<Element
-				css={props.style ? props.style : defaultStyle}
-				{...props}>
+				css={customStyle ? defaultStyle + customStyle : defaultStyle}
+				{...rest}>
 					<Heading semantic='p'>(c)group-work. All rights reserved.</Heading>
 			</Element>
 		)
@@ -32,7 +33,7 @@ const Footer = ({...props})=>{
 }
 
 Footer.propTypes = {
-	IS_CLIENT_LOGGED: PropTypes.bool.isRequired
+	IS_CLIENT_LOGGED: PropTypes.bool
 }
 
 const mapStateToProps = ({CLIENT_LOG_DATA}) => {
