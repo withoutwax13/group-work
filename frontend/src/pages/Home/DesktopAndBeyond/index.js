@@ -12,6 +12,7 @@ const defaultStyle = () => {
 	return `
 		
 		margin: 3%;
+		height: calc(100% - 100px);
 
 		${device.MobilePortrait}{
 			display: none;
@@ -25,6 +26,14 @@ const defaultStyle = () => {
 		${device.TabletHD}{
 			display: none;
 		}
+
+		display: grid;
+		grid-template-columns: 25% 2% 46% 2% 25%;
+		grid-template-rows: 30% 2% 68%;
+		grid-template-areas: 
+			"first-top . second . third"
+			". . second . third"
+			"first-bottom . second . third";
 	`
 }
 
@@ -33,10 +42,10 @@ const DesktopAndBeyond = ({...props}) => {
 		<Element
 			css={defaultStyle()}
 			{...props}>
-				<ClientCard/>
-				<ChatRoom/>
-				<ChatRoomList/>
-				<ClientGroupList/>
+				<ClientCard customStyle={`grid-area: first-top;`}/>
+				<ClientGroupList customStyle={`grid-area: first-bottom;`}/>
+				<ChatRoom customStyle={`grid-area: second;`}/>
+				<ChatRoomList customStyle={`grid-area: third;`}/>
 		</Element>
 	)
 }

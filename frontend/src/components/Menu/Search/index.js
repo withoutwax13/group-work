@@ -53,8 +53,8 @@ const Search = ({...props}) => {
 			{...props}>
 				{renderSearchInputUI()}
 				<Element
-					marginRight='10px'
-					marginLeft='10px'
+					marginright='10px'
+					marginleft='10px'
 					padding='5px'
 					css='mix-blend-mode: multiply;'>
 						<Logo 

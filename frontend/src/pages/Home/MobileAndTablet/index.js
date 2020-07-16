@@ -3,10 +3,9 @@ import React from 'react'
 import { device } from '../../../utils/responsiveBreakpoints'
 import { Element } from '../../../components/Element'
 
+import Tab from './Tab'
+
 import ClientCard from '../../../components/ClientCard'
-import ChatRoom from '../../../components/ChatRoom'
-import ChatRoomList from '../../../components/ChatRoomList'
-import ClientGroupList from '../../../components/ClientGroupList'
 
 const defaultStyle = () => {
 	return `
@@ -20,8 +19,12 @@ const defaultStyle = () => {
 			display: none;
 		}
 
-		display: flex;
-		flex-direction: column;
+		display: grid;
+		grid-template-rows: 20% 3% 67%;
+		grid-template-areas: 
+			"top"
+			"."
+			"bottom";
 	`
 }
 
@@ -30,10 +33,8 @@ const MobileAndTablet = ({...props}) => {
 		<Element
 			css={defaultStyle()}
 			{...props}>
-				<ClientCard/>
-				<ChatRoom/>
-				<ChatRoomList/>
-				<ClientGroupList/>
+				<ClientCard customStyle={`grid-area: top;`}/>
+				<Tab customStyle={`grid-area: bottom;`}/>
 		</Element>
 	)
 }
