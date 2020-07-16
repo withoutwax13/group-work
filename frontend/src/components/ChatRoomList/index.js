@@ -6,7 +6,7 @@ import { device } from '../../utils/responsiveBreakpoints'
 const defaultStyle = () => {
     return `
         background-color: #dedad7;
-        border: 1px solid gray;
+        border: 1px solid silver;
         border-radius: 10px;
         box-shadow: 2px 2px 2px gray;
         height: 100%;
