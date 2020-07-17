@@ -1,5 +1,8 @@
 import React from 'react'
 import { Element } from '../Element'
+import RoomDetail from './RoomDetail'
+import Messages from './Messages'
+import Tools from './Tools'
 
 const defaultStyle = () => {
     return `
@@ -9,6 +12,8 @@ const defaultStyle = () => {
         box-shadow: 2px 2px 2px gray;
         height: 100%;
         width: 100%;
+        display: flex;
+        flex-direction: column;
     `
 }
 
@@ -18,7 +23,9 @@ const ChatRoom = ({...props}) => {
         <Element
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
             {...rest}>
-                ChatRoom
+                <RoomDetail/>
+                <Messages/>
+                <Tools/>
         </Element>
     )
 }
