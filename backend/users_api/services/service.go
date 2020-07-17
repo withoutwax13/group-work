@@ -10,3 +10,7 @@ func CreateUser(user *domain.User) (*domain.User, *errors.RESTError) {
 	user.DateCreated = time_util.GetNowString()
 	return user, nil
 }
+
+func GetUser(user *domain.User) (*domain.User, *errors.RESTError) {
+	return nil, nil
+}
