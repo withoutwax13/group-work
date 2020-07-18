@@ -5,7 +5,7 @@ import { Element } from '../Element'
 const defaultStyle = `
 	font-family: 'Courier New';
 	outline: none;
-	color: black;
+	color: white;
 	text-decoration: none;
 `
 

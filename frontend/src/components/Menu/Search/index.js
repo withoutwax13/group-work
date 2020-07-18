@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import SearchIcon from '../../../assets/images/search-icon.png'
-import CloseIcon from '../../../assets/images/x-icon.jpg'
+import CloseIcon from '../../../assets/images/x-icon.png'
 
 import { Element } from '../../Element'
 import Form from '../../Form'
@@ -15,8 +15,8 @@ const defaultStyle = `
 
 const Search = ({...props}) => {
 
-	const [ input, setInput ] = React.useState('')
-	const [ inputUICollapse, shouldInputUICollapse ] = React.useState(false)
+	const [ input, setInput ] = useState('')
+	const [ inputUICollapse, shouldInputUICollapse ] = useState(false)
 
 	const onInputChange = e => {
 		setInput(e.target.value)
@@ -39,6 +39,7 @@ const Search = ({...props}) => {
 				<Form
 					onSubmit={onFormSubmit}>
 						<Input 
+							customStyle='height: 20px;'
 							value={input} 
 							placeholder='Search group-work' 
 							onChange={onInputChange}/>
@@ -56,11 +57,12 @@ const Search = ({...props}) => {
 					marginright='10px'
 					marginleft='10px'
 					padding='5px'
-					css='mix-blend-mode: multiply;'>
+					css=''>
 						<Logo 
 							src={inputUICollapse ? CloseIcon : SearchIcon} 
 							width='20px' 
-							height='20px' 
+							height='20px'
+							customStyle='' 
 							onClick={onIconClick}/>
 				</Element>
 		</Element>
