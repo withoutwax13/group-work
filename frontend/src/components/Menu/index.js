@@ -57,7 +57,7 @@ const Menu = ({...props}) => {
 							</Navigation>}
 							eventHandler={onClickHandler}
 					/>
-				)}/>
+				)}
 			</Element>
 		)	
 	}

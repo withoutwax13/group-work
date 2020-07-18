@@ -7,7 +7,7 @@ import DesktopAndBeyond from './DesktopAndBeyond'
 const defaultStyle = () => {
 	return `
 		background-color: white;
-		height: calc(100vh - 50px);
+		height: calc(100vh - 100px);
 		
 	`
 }

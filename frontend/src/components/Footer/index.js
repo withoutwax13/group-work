@@ -8,10 +8,10 @@ const defaultStyle = `
 	flex-direction: row;
 	justify-content: space-around;
 
-	
 	left: 0;
 	right: 0;
 	bottom: 0;
+	heighr: 70px;
 	width: 100%;
 	background-color: black;
 `

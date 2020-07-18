@@ -4,11 +4,16 @@ import { Element } from '../../Element'
 import Heading from '../../Heading'
 
 const defaultStyle = () => `
-    width: 100px;
-    height: 400px;
+    overflow-y: auto;
+    width: 200px;
+    max-height: 200px;
     border: 1px solid black;
     background-color: black;
-    margin: 0 0 auto auto;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-top: 0;
+    margin-right: 0;
     text-align: center;
 `
 
@@ -19,6 +24,7 @@ const CollapseMenu = ({...props}) => {
                 <Heading semantic='h6'>Menu 1</Heading>
                 <Heading semantic='h6'>Menu 2</Heading>
                 <Heading semantic='h6'>Menu 3</Heading>
+                <Heading semantic='h6'>Menu 4</Heading>
         </Element>
     )
 }

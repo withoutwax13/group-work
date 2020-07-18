@@ -8,7 +8,7 @@ import GoogleAuth from '../../components/GoogleAuth'
 
 const defaultStyle = () => `
 	width: 100%; 
-	height: 100%;
+	height: 1440px;
 	text-align: center;
 `
 

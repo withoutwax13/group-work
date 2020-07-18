@@ -22,8 +22,8 @@ const RoomDetail = ({...props}) => {
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
             {...rest}>
                 <Heading 
-                    customStyle='margin: auto auto auto 10px;'>
-                        GROUP NAME
+                    customStyle='margin: auto auto auto 20px; font-family: Helvetica;'>
+                        Active Group Name Here
                 </Heading>
                 <Burger/>
         </Element>

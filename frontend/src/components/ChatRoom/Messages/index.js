@@ -3,8 +3,10 @@ import React from 'react'
 import { Element } from '../../Element'
 
 const defaultStyle = () => `
-    height: calc(100% - 100px);
+    overflow-y: auto;
+    margin: 10px 0;
     width: 100%;
+    height: calc(100% - 90px);
     background: transparent;
 `
 

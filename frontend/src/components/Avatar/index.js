@@ -7,7 +7,7 @@ const defaultStyle = () => `
 
 const Avatar = ({...props}) => {
     const { customStyle, imageUrl, ...rest } = props
-    return (
+    if (imageUrl) return (
         <Element
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
             {...rest}>
@@ -18,6 +18,12 @@ const Avatar = ({...props}) => {
                     onClick={()=>window.open(imageUrl, '_blank')}/>
         </Element>
     )
+    else {
+        return (
+            <Element
+                css='border: 1px solid black; border-radius: 60px; cursor: pointer; height: 50px; width: 50px;'/>
+        )
+    }
 }
 
 export default Avatar

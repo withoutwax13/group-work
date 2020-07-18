@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Element } from '../../Element'
 import CollapseMenu from '../CollapseMenu'
@@ -17,7 +17,7 @@ const defaultStyle = () => `
     `
 
 const Burger = ({...props}) => {
-    const [ collapseMenu, setCollapse ] = React.useState(false)
+    const [ collapseMenu, setCollapse ] = useState(false)
     const renderMenu = () => {
         if (collapseMenu){
             return (
@@ -27,7 +27,7 @@ const Burger = ({...props}) => {
     }
     return (
         <Element
-            css='display: flex; flex-direction: column;'>
+            css='display: flex-inline; flex-direction: column; margin: 0; padding: auto;'>
             <Element 
                 css={defaultStyle()}
                 onClick={()=>setCollapse(!collapseMenu)}>

@@ -10,7 +10,9 @@ import ClientCard from '../../../components/ClientCard'
 const defaultStyle = () => {
 	return `
 	
-		margin: 2% 4%;
+		margin: 0;
+		padding: 5px 1% 5px 1%;
+		height: calc(100% - 20px);
 
 		${device.Desktop}{
 			display: none;
@@ -20,11 +22,12 @@ const defaultStyle = () => {
 		}
 
 		display: grid;
-		grid-template-rows: 22% 2% 76%;
+		grid-template-rows: 22% 2% 74% 2%;
 		grid-template-areas: 
 			"top"
 			"."
-			"bottom";
+			"bottom"
+			".";
 	`
 }
 
@@ -33,8 +36,8 @@ const MobileAndTablet = ({...props}) => {
 		<Element
 			css={defaultStyle()}
 			{...props}>
-				<ClientCard customStyle={`grid-area: top;`}/>
-				<Tab customStyle={`grid-area: bottom;`}/>
+				<ClientCard customStyle={`grid-area: top; max-height: 160px;`}/>
+				<Tab customStyle={`grid-area: bottom; min-height: 400px;`}/>
 		</Element>
 	)
 }
