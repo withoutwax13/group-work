@@ -11,8 +11,8 @@ import ClientGroupList from '../../../components/ClientGroupList'
 const defaultStyle = () => {
 	return `
 		
-		margin: 3%;
-		height: calc(100% - 100px);
+		margin: 3% 4% 0 4%;
+		height: calc(100% - 80px);
 
 		${device.MobilePortrait}{
 			display: none;

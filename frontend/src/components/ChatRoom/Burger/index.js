@@ -10,8 +10,9 @@ const defaultStyle = () => `
         height: 20px; 
         margin: auto 0 auto auto; 
         font-weight: bold; 
-        background: transparent; 
-        &:hover{ color: white; }
+        background: transparent;
+        color: white; 
+        &:hover{ color: gray; }
         user-select: none;
     `
 

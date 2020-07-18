@@ -10,7 +10,7 @@ import ClientCard from '../../../components/ClientCard'
 const defaultStyle = () => {
 	return `
 	
-		margin: 3%;
+		margin: 2% 4%;
 
 		${device.Desktop}{
 			display: none;
@@ -20,7 +20,7 @@ const defaultStyle = () => {
 		}
 
 		display: grid;
-		grid-template-rows: 20% 3% 67%;
+		grid-template-rows: 22% 2% 76%;
 		grid-template-areas: 
 			"top"
 			"."

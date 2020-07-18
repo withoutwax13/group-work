@@ -7,11 +7,10 @@ import Burger from '../Burger'
 const defaultStyle = () => `
     width: 100%;
     height: 40px;
-    background-color: lightblue;
+    background-color: black;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    border: 1px solid black;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
 `
@@ -23,7 +22,7 @@ const RoomDetail = ({...props}) => {
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
             {...rest}>
                 <Heading 
-                    customStyle='margin: auto auto auto 5px;'>
+                    customStyle='margin: auto auto auto 10px;'>
                         GROUP NAME
                 </Heading>
                 <Burger/>

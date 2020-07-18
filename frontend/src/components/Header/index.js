@@ -15,7 +15,7 @@ const defaultStyle = `
 	flex-direction: row;
 	justify-content: space-between;
 	height: 30px;
-	background-color: #b4c0c5;
+	background-color: black;
 `
 
 const Header = ({...props}) => {

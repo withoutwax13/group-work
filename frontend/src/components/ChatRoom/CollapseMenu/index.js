@@ -6,9 +6,8 @@ import Heading from '../../Heading'
 const defaultStyle = () => `
     width: 100px;
     height: 400px;
-    border-radius: 5px;
     border: 1px solid black;
-    background-color: white;
+    background-color: black;
     margin: 0 0 auto auto;
     text-align: center;
 `

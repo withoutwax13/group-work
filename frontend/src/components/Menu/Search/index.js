@@ -56,7 +56,7 @@ const Search = ({...props}) => {
 					marginright='10px'
 					marginleft='10px'
 					padding='5px'
-					css='mix-blend-mode: multiply;'>
+					css=''>
 						<Logo 
 							src={inputUICollapse ? CloseIcon : SearchIcon} 
 							width='20px' 
