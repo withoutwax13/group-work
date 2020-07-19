@@ -18,7 +18,7 @@ const Menu = ({...props}) => {
 	const { IS_CLIENT_LOGGED, customStyle, ...rest } = props
 	const onClickHandler = useRef()
 	
-	if (IS_CLIENT_LOGGED){
+	if (IS_CLIENT_LOGGED === true){
 		return (
 			<Element
 				css={customStyle ? defaultStyle + customStyle : defaultStyle}
@@ -37,7 +37,7 @@ const Menu = ({...props}) => {
 			</Element>
 		)
 	}
-	else {
+	else if (IS_CLIENT_LOGGED === false) {
 		return (
 			<Element
 				css={customStyle ? defaultStyle + customStyle : defaultStyle}
@@ -56,10 +56,31 @@ const Menu = ({...props}) => {
 									LOGIN
 							</Navigation>}
 							eventHandler={onClickHandler}
-					/>
-				)}
+					/>	
 			</Element>
-		)	
+			)
+	}
+	else {
+		return (
+			<Element
+				css={customStyle ? defaultStyle + customStyle : defaultStyle}
+				{...rest}>
+					<Navigation
+						semantic='a' 
+						href='https://github.com/withoutwax13/group-work'>
+							about
+					</Navigation>
+					<GoogleAuth
+							WrappedComponent={()=><Navigation 
+								semantic='link' 
+								to='/'
+								customStyle='border-radius: 5px; background-color: white; color: black; &:hover{ background-color: black; color: white; }'>
+									LOADING
+							</Navigation>}
+							eventHandler={onClickHandler}
+					/>	
+			</Element>
+			)
 	}
 }
 
