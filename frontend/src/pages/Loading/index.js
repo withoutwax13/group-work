@@ -3,6 +3,7 @@ import React from 'react'
 import { Element } from '../../components/Element'
 import Heading from '../../components/Heading'
 
+// Temporary Solution
 const LoadingPage = (props) => {
     return (
         <Element
