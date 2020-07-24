@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { LOG_CLIENT, UNLOG_CLIENT } from '../actionTypes'
+import { LOG_CLIENT, UNLOG_CLIENT, TOGGLE_MOBILE_TAB } from '../actionTypes'
 import { CLIENT_LOG_INITIAL } from './INITIAL_STATE'
 
 const CLIENT_LOG_REDUCER = (state = CLIENT_LOG_INITIAL, action) => {
@@ -11,6 +11,14 @@ const CLIENT_LOG_REDUCER = (state = CLIENT_LOG_INITIAL, action) => {
 	return state
 }
 
+const MOBILE_TAB_STATUS_REDUCER = (state = false, action) => {
+	if (action.type === TOGGLE_MOBILE_TAB){
+		return !state
+	}
+	return state
+}
+
 export default combineReducers({
-	CLIENT_LOG_DATA: CLIENT_LOG_REDUCER
+	CLIENT_LOG_DATA: CLIENT_LOG_REDUCER,
+	MOBILE_TAB_STATUS: MOBILE_TAB_STATUS_REDUCER
 })

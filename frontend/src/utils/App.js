@@ -10,6 +10,8 @@ import Integrated from '../components/Integrated'
 // Pages
 import Landing from '../pages/Landing'
 import Home from '../pages/Home'
+import PageNotFound from '../pages/PageNotFound'
+import LoadingPage from '../pages/Loading'
 
 const App = ({IS_CLIENT_LOGGED}) => {
 
@@ -18,8 +20,16 @@ const App = ({IS_CLIENT_LOGGED}) => {
 			<BrowserRouter>
 				<Integrated>
 				<Switch>
-					<Route exact path='/' component={ IS_CLIENT_LOGGED ? Home : Landing}/>
-					<Route component={Landing}/>
+					<Route exact path='/' component={()=>{
+						if (IS_CLIENT_LOGGED === true){
+							return <Home/>
+						}
+						else if (IS_CLIENT_LOGGED === false){
+							return <Landing/>
+						}
+						else return <LoadingPage/>
+					}}/>
+					<Route component={PageNotFound}/>
 				</Switch>
 				</Integrated>
 			</BrowserRouter>

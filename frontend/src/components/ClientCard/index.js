@@ -4,51 +4,32 @@ import { connect } from 'react-redux'
 import { Element } from '../Element'
 
 import Avatar from '../Avatar'
-import Heading from '../Heading'
 
 const defaultStyle = () => {
 	return `
-		background-color: black;
-		border: 1px solid silver;
-		border-radius: 10px;
-		height: 100%;
-        width: 100%;
-		display: flex;
-		flex-direction: row;
-		max-width: 320px;
+		width: 30px; height: 30px; background-color: black; margin-left: 3px;
 	`
 }
 
-const ClientCard = ({...props}) => {
-
-	const { customStyle, CLIENT, ...rest } = props
-	const nameCharLimit = 10
-
-	if (CLIENT) {
-		return (
-			<Element
-				css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
-				{...rest}>
-					<Avatar imageUrl={CLIENT.signedInImageUrl}/>
-					<Element
-						css='margin-left: 5px; margin-bottom: 5px; margin-top: auto;'>
-						<Heading 
-							semantic='h5'>
-								Name: {CLIENT.signedInName.length < nameCharLimit ? CLIENT.signedInName : CLIENT.signedInName.split('').filter((ch, i)=> i < nameCharLimit).concat(['...']).join('')}
-						</Heading>
-					</Element>
-			</Element>
-		)
+const ClientCard = (props) => {
+	const { CLIENT } = props
+	const renderClientImage = () => {
+		if(CLIENT){
+			return (
+				<Avatar 
+					imageUrl={CLIENT.signedInImageUrl} 
+					width='30px' 
+					height='30px'
+					customStyle='margin: 0; padding: 0;'/>
+			)
+		}
 	}
-	else {
-		return (
-			<Element
-				css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
-				{...rest}>
-					Loading...
-			</Element>
-		)
-	}
+	return (
+		<Element 
+			css={defaultStyle()}>
+				{renderClientImage()}
+		</Element>
+	)
 }
 
 const mapStateToProps = ({CLIENT_LOG_DATA}) => {

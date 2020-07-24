@@ -1,43 +1,26 @@
 import React, { useRef } from 'react'
 
-import { device } from '../../utils/responsiveBreakpoints'
+// Temporary feature logos
+import friendsLogo from '../../assets/images/friends.png'
+import groupLogo from '../../assets/images/group.jpg'
+import chatLogo from '../../assets/images/chat.jpg'
+
 import { Element } from '../../components/Element'
 import Heading from '../../components/Heading'
 import Button from '../../components/Button'
 import GoogleAuth from '../../components/GoogleAuth'
+import Logo from '../../components/Logo'
 
-const defaultStyle = () => `
-	width: 100%; 
-	height: 1440px;
-	text-align: center;
-`
-
-const heroSectionStyle = () => `
-	margin-top: 10%;
-	margin-bottom: 10%;
-	display: flex; flex-direction: column; align-items: space-between;
-`
-const mainHeadingStyle = () => `
-	${device.MobilePortrait}{
-		color: black; font-family: Helvetica; font-size: 4.0rem;
-	}
-	${device.MobileLandscape}{
-		color: black; font-family: Helvetica; font-size: 4.0rem;
-	}
-	color: black; font-family: Helvetica; font-size: 5.0rem;
-`
-
-const subHeadingStyle = () => `
-	${device.MobilePortrait}{
-		color: gray; font-damily: Courier New; font-size: 1.3rem;
-		margin: auto 5% 3% 5%;
-	}
-	${device.MobileLandscape}{
-		color: gray; font-damily: Courier New; font-size: 1.3rem;
-		margin: auto 5% 3% 5%;
-	}
-	color: gray; font-damily: Courier New; font-size: 1.3rem;
-`
+import { 
+			defaultStyle, 
+			heroSectionStyle, 
+			mainHeadingStyle, 
+			subHeadingStyle, 
+			featureSectionStyle, 
+			featureContainerStyle, 
+			featureLogoStyle 
+		} 
+			from './style'
 
 const Landing = ({...props}) => {
 	const onJoinClick = useRef()
@@ -66,6 +49,24 @@ const Landing = ({...props}) => {
 													JOIN GROUP-WORK TODAY!
 											</Button>}
 						eventHandler={onJoinClick}/>
+				</Element>
+				<Element
+					css={featureSectionStyle()}>
+						<Element 
+							css={featureContainerStyle()}>
+								<Logo src={friendsLogo} customStyle={featureLogoStyle()}/>
+								<Heading customStyle='color: black;'>meet people with same interests and goals</Heading>
+						</Element>
+						<Element 
+							css={featureContainerStyle()}>
+								<Logo src={groupLogo} customStyle={featureLogoStyle()}/>
+								<Heading customStyle='color: black;'>create or join groups of your interests</Heading>
+						</Element>
+						<Element 
+							css={featureContainerStyle()}>
+								<Logo src={chatLogo} customStyle={featureLogoStyle()}/>
+								<Heading customStyle='color: black;'>communicate and achieve results</Heading>
+						</Element>
 				</Element>
 		</Element>
 	)

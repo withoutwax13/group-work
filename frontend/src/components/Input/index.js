@@ -5,9 +5,6 @@ import { Element } from '../Element'
 const defaultStyle = `
 	border-radius: 5px;
 	outline: none;
-	&:hover {
-		transform: scale(1.01, 1.01);
-	}
 	width: 100%;
 `
 
