@@ -1,14 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { Element } from '../../Element'
-import CollapseMenu from '../CollapseMenu'
 
 const defaultStyle = () => `
-        cursor: pointer; 
-        padding: 10px; 
-        width: 20px; 
-        height: 20px; 
-        margin: auto 0 auto auto; 
+        margin: 5px auto;
+        cursor: pointer;
         font-weight: bold; 
         background: transparent;
         color: white; 
@@ -17,23 +13,12 @@ const defaultStyle = () => `
     `
 
 const Burger = ({...props}) => {
-    const [ collapseMenu, setCollapse ] = useState(false)
-    const renderMenu = () => {
-        if (collapseMenu){
-            return (
-                <CollapseMenu/>
-            )
-        }
-    }
+    const { customStyle, toggleMenu } = props
     return (
-        <Element
-            css='display: flex-inline; flex-direction: column; margin: 0; padding: auto;'>
-            <Element 
-                css={defaultStyle()}
-                onClick={()=>setCollapse(!collapseMenu)}>
-                    {collapseMenu ? `x` : `...`}
-            </Element>
-            {renderMenu()}
+        <Element 
+            css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
+            onClick={toggleMenu}>
+                ...
         </Element>
     )
 }

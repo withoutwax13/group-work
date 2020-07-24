@@ -1,4 +1,4 @@
-import { LOG_CLIENT, UNLOG_CLIENT } from '../actionTypes'
+import { LOG_CLIENT, UNLOG_CLIENT, TOGGLE_MOBILE_TAB } from '../actionTypes'
 
 export const unlogClient = () => {
 	return {
@@ -23,5 +23,11 @@ export const logClient = (id, name, email, imageURL) => {
 			signedInEmail: email,
 			signedInImageUrl: imageURL
 		}
+	}
+}
+
+export const toggleMobileTab = () => {
+	return {
+		type: TOGGLE_MOBILE_TAB
 	}
 }

@@ -7,7 +7,7 @@ import Button from '../../Button'
 const defaultStyle = () => `
     margin-top: auto;
     margin-bottom: 10px;
-    height: 50px;
+    height: 25px;
     display: grid;
     grid-template-columns: 2% 71% 3% 22% 2%;
     grid-template-areas: ". left . right .";

@@ -6,6 +6,7 @@ import { Element } from '../Element'
 import Search from './Search'
 import Navigation from '../Navigation'
 import GoogleAuth from '../GoogleAuth'
+import ClientCard from '../ClientCard'
 
 const defaultStyle = `
 	display: flex;
@@ -34,6 +35,7 @@ const Menu = ({...props}) => {
 							</Navigation>}
 							eventHandler={onClickHandler}
 					/>
+					<ClientCard/>
 			</Element>
 		)
 	}

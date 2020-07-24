@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Element } from '../Element'
 import RoomDetail from './RoomDetail'
 import Messages from './Messages'
@@ -8,7 +8,6 @@ const defaultStyle = () => {
     return `
         background-color: #e8e4c9;
         border: 1px solid silver;
-        border-radius: 10px;
         height: 100%;
         width: 100%;
         display: flex;
@@ -18,12 +17,16 @@ const defaultStyle = () => {
 
 const ChatRoom = ({...props}) => {
     const { customStyle, ...rest } = props
+    const [ menuCollapse, setMenuCollapse ] = useState(false)
+    const toggleMenu = () => {
+        setMenuCollapse(!menuCollapse)
+    }
     return (
         <Element
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
             {...rest}>
-                <RoomDetail/>
-                <Messages/>
+                <RoomDetail toggleMenu={toggleMenu}/>
+                <Messages menuCollapse={menuCollapse}/>
                 <Tools/>
         </Element>
     )

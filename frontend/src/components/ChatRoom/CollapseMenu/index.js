@@ -4,20 +4,16 @@ import { Element } from '../../Element'
 import Heading from '../../Heading'
 
 const defaultStyle = () => `
-    overflow-y: auto;
-    width: 200px;
-    max-height: 200px;
-    border: 1px solid black;
-    background-color: black;
-    border-left: 1px solid white;
-    border-right: 1px solid white;
-    border-bottom: 1px solid white;
-    margin-top: 0;
-    margin-right: 0;
+    position: absolute;
+    z-index: 999;
     text-align: center;
+    width: 50%;
+    height: 50%;
+    background-color: black;
+    margin: 0 0 auto auto;
 `
 
-const CollapseMenu = ({...props}) => {
+const CollapseMenu = () => {
     return (
         <Element
             css={defaultStyle()}>
