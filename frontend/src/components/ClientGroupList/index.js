@@ -21,6 +21,13 @@ const labelStyle = () => `
     flex-direction: row;
     justify-content: space-between;
 `
+const groupListStyle = () => `
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: calc(100% - 40px);
+    overflow-y: auto;
+`
 
 const ClientGroupList = ({...props}) => {
     const { customStyle, ...rest } = props
@@ -34,6 +41,12 @@ const ClientGroupList = ({...props}) => {
                         <Heading customStyle='margin: auto 20px; font-family: Helvetica;'>
                             Your Groups
                         </Heading>
+                </Element>
+                <Element
+                    css={groupListStyle()}>
+                        {
+                            // Array of group objects associated to client to be mapped here
+                        }
                 </Element>
         </Element>
     )
