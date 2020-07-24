@@ -8,7 +8,7 @@ const temporaryData = [
     {
         id: 1,
         user: 'Fake User 1',
-        message: '123dsadasdsad4'
+        message: '123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4'
     },
     {
         id: 2,
@@ -129,7 +129,7 @@ const temporaryData = [
 
 const defaultStyle = () => `
     overflow-y: auto;
-    margin: 5px auto;
+    margin: 5px 0;
     width: 100%;
     height: calc(100vh - 200px);
     background: transparent;
@@ -137,9 +137,11 @@ const defaultStyle = () => `
 
 const Messages = ({...props}) => {
     const { menuCollapse } = props
+
+    // rendering simulation: temporarily assume that elements on temporaryData with id === 1 as the current user
     const renderMessages = () => {
         return temporaryData.map(data=>{
-                return <Message message={data.message} key={data.id}/>
+                return <Message isClient={data.id === 1 ? true : false} data={data} key={data.id}/>
         })
     }
     
