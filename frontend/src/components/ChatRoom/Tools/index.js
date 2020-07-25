@@ -18,7 +18,7 @@ const Tools = ({...props}) => {
     return (
         <Element
             css={defaultStyle()}>
-                <Input customStyle='grid-area: left; padding: 5px;' value={inputValue} onChange={e=>setInputValue(e.target.value)} placeholder='Input message here'/>
+                <Input type='text' customStyle='grid-area: left; padding: 5px;' value={inputValue} onChange={e=>setInputValue(e.target.value)} placeholder='Input message here'/>
                 <Button type='primary' customStyle='grid-area: right;'>SEND</Button>
         </Element>
     )
