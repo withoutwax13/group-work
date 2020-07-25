@@ -9,15 +9,16 @@ const defaultStyle = () => `
 const messageBoxClientStyle = () => `
 	overflow-wrap: break-word;
 	background-color: lightblue;
-	width: 400px;
+	width: 300px;
 	padding: 5px;
+	border: 1px solid gray;
 	border-radius: 10px;
 	margin: 5px 5px 5px auto;
 `
 const messageBoxOthersStyle = () => `
 	overflow-wrap: break-word;
 	background-color: white;
-	width: 400px;
+	width: 300px;
 	padding: 5px;
 	border: 1px solid gray;
 	border-radius: 10px;
