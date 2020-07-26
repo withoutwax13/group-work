@@ -27,7 +27,11 @@ const Tab = (props) => {
         <Element
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
             onClick={toggleMobileTab}>
-                <Navigation customStyle='background: transparent; color: white;'>Tab</Navigation>
+                <Navigation 
+                    semantic='h4' 
+                    customStyle='background: transparent; color: white;'>
+                        Tab
+                </Navigation>
         </Element>
     )
 }

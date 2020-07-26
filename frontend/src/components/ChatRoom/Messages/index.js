@@ -4,130 +4,16 @@ import { Element } from '../../Element'
 import Message from './Message'
 import CollapseMenu from '../CollapseMenu'
 
-const temporaryData = [
-    {
-        id: 1,
-        user: 'Fake User 1',
-        message: '123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4123dsadasdsad4'
-    },
-    {
-        id: 2,
-        user: 'Fake User 2',
-        message: '123242354dasdsadad'
-    },
-    {
-        id: 3,
-        user: 'Fake User 3',
-        message: '123242354wqewwqrwer'
-    },
-    {
-        id: 4,
-        user: 'Fake User 4',
-        message: 'sd;[l['
-    },
-    {
-        id: 5,
-        user: 'Fake User 5',
-        message: '1ooooooppp2354'
-    },
-    {
-        id: 6,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 1,
-        user: 'Fake User 1',
-        message: '123dsadasdsad4'
-    },
-    {
-        id: 2,
-        user: 'Fake User 2',
-        message: '123242354dasdsadad'
-    },
-    {
-        id: 3,
-        user: 'Fake User 3',
-        message: '123242354wqewwqrwer'
-    },
-    {
-        id: 4,
-        user: 'Fake User 4',
-        message: 'sd;[l['
-    },
-    {
-        id: 5,
-        user: 'Fake User 5',
-        message: '1ooooooppp2354'
-    },
-    {
-        id: 6,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 99,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 233,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 12,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 2123,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 99,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 233,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 12,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 2123,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 99,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 233,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 12,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    },
-    {
-        id: 2123,
-        user: 'Fake User 6',
-        message: '1232423sdadad54'
-    }
-]
+import { temporaryData } from './fakeData'
 
 const defaultStyle = () => `
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+`
+
+const messagesContainerStyle = () => `
     overflow-y: auto;
     margin: 5px 0;
     width: 100%;
@@ -136,7 +22,7 @@ const defaultStyle = () => `
 `
 
 const Messages = ({...props}) => {
-    const { menuCollapse } = props
+    const { menuCollapse, toggleMenu } = props
 
     // rendering simulation: temporarily assume that elements on temporaryData with id === 1 as the current user
     const renderMessages = () => {
@@ -144,20 +30,23 @@ const Messages = ({...props}) => {
                 return <Message isClient={data.id === 1 ? true : false} data={data} key={data.id}/>
         })
     }
+
+    const renderMenuCollapse = () => {
+        return menuCollapse ? <CollapseMenu/> : null 
+    }
     
     return (
-        <React.Fragment>
+        <Element
+            onClick={menuCollapse ? toggleMenu : null}>
             <Element
                 css={defaultStyle()}>
-                    {renderMessages()}
+                <Element
+                    css={messagesContainerStyle()}>
+                        {renderMessages()}
+                </Element>
+                {renderMenuCollapse()}
             </Element>
-            <Element>
-                {
-                    // Empty for now. Idk what did I do that it broke.
-                }
-                {menuCollapse ? `` : ``}
-            </Element>
-        </React.Fragment>
+        </Element>
     )
 }
 

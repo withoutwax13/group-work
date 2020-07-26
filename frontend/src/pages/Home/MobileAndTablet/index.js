@@ -9,7 +9,7 @@ import ClientGroupList from '../../../components/ClientGroupList'
 
 const defaultStyle = () => {
 	return `
-	
+		width: 100%;
 		${device.Desktop}{
 			display: none;
 		}
