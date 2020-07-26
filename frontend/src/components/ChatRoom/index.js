@@ -6,7 +6,7 @@ import Tools from './Tools'
 
 const defaultStyle = () => {
     return `
-        background-color: #e8e4c9;
+        background-color: white;
         border: 1px solid silver;
         height: 100%;
         width: 100%;
