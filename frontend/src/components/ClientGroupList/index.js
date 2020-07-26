@@ -1,17 +1,21 @@
 import React from 'react'
 
+import { fakeGroupList } from './fakeData'
 import { device } from '../../utils/responsiveBreakpoints'
 
 import { Element } from '../Element'
 import Heading from '../Heading'
 import Tab from '../../pages/Home/MobileAndTablet/Tab'
 
+import GroupCard from './GroupCard'
+
 const defaultStyle = () => {
     return `
         background-color: #e8e4c9;
         border: 1px solid silver;
-        height: 100%;
+        height: calc(100vh - 115px);
         width: 100%;
+        background-color: white;
     `
 }
 
@@ -62,9 +66,9 @@ const ClientGroupList = ({...props}) => {
                 </Element>
                 <Element
                     css={groupListStyle()}>
-                        {
-                            // Array of group objects associated to client to be mapped here
-                        }
+                        {fakeGroupList.map(data=>{
+                            return <GroupCard key={data.id} data={data}/>
+                        })}
                 </Element>
         </Element>
     )
