@@ -9,6 +9,9 @@ import Tab from '../../pages/Home/MobileAndTablet/Tab'
 
 import GroupCard from './GroupCard'
 
+// For now, actual async calls are just simulated to show what the ui will look like on that scenario
+import Spinner from '../Loading/Spinner'
+
 const defaultStyle = () => {
     return `
         background-color: #e8e4c9;
@@ -45,6 +48,32 @@ const groupListStyle = () => `
 
 const ClientGroupList = ({...props}) => {
     const { customStyle, ...rest } = props
+
+    // simulating async calls to show loading state of ui [data not ready]
+    const [ asyncTimer, setTimer ] = React.useState(false)
+    React.useEffect(()=>{
+        setTimeout(()=>setTimer(true), 3000)
+    })
+    const renderLoadingBox = () => {
+        return (
+            <Element
+                css='margin: 100px auto;'>
+                    <Spinner/>
+            </Element>
+        )
+    }
+    // end of simulation on async calls
+
+    const renderGroupList = () => {
+        return (
+            <Element
+                css={groupListStyle()}>
+                    {fakeGroupList.map(data=>{
+                        return <GroupCard key={data.id} data={data}/>
+                    })}
+            </Element>
+        )
+    }
     return (
         <Element
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
@@ -64,12 +93,7 @@ const ClientGroupList = ({...props}) => {
                             </Heading>
                         </Element>
                 </Element>
-                <Element
-                    css={groupListStyle()}>
-                        {fakeGroupList.map(data=>{
-                            return <GroupCard key={data.id} data={data}/>
-                        })}
-                </Element>
+                {asyncTimer ? renderGroupList() : renderLoadingBox()}
         </Element>
     )
 }

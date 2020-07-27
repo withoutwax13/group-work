@@ -37,7 +37,9 @@ const senderProfilePhotoStyle = () => `
 	margin: 5px;
 `
 const Message = ({...props}) => {
+
 	const { data, customStyle, isClient, ...rest } = props
+
 	const renderMessageBox = () => {
 		if(isClient){
 			return <Element
@@ -57,6 +59,7 @@ const Message = ({...props}) => {
 			</Element>
 		)
 	}
+
 	return (
 		<Element
 			css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
