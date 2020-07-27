@@ -1,4 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
+
+import { selectGroup } from '../../../modules/actions'
 
 import { Element } from '../../Element'
 
@@ -42,7 +45,7 @@ const GroupCard = (props) => {
 
 	// mockups first
 
-	const { data } = props
+	const { data, selectGroup } = props
 
 	const limitCharCount = (label) => {
 		const charLimit = 40
@@ -51,7 +54,8 @@ const GroupCard = (props) => {
 
 	return (
 		<Element
-			css={defaultStyle()}>
+			css={defaultStyle()}
+			onClick={()=>selectGroup({groupName: data.groupName})}>
 				<Element
 					css={groupPhotoStyle()}/>
 				<Element
@@ -69,4 +73,4 @@ const GroupCard = (props) => {
 	)
 }
 
-export default GroupCard
+export default connect(null, { selectGroup })(GroupCard)

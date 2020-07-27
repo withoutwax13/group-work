@@ -5,3 +5,8 @@ export const CLIENT_LOG_INITIAL = {
 	signedInEmail: null,
 	signedInImageUrl: null
 }
+
+// mock/to be improved after backend is ready
+export const ACTIVE_GROUP_INITIAL = {
+	groupName: null
+}
