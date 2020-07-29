@@ -1,126 +1,111 @@
 import { device } from '../../utils/responsiveBreakpoints'
 
 export const defaultStyle = () => `
-	width: 100%; 
-	height: 1440px;
+	width: 100vw; 
+	height: calc(100vh - 100px);
 	text-align: center;
 `
 
-export const heroSectionStyle = () => `
-	margin-top: 10%;
-	margin-bottom: 20%;
-	display: flex; flex-direction: column; align-items: space-between;
+export const heroSectionContainerStyle = () => `
+	${device.DesktopHD}{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		height: 281px;
+		width: 64vw;
+	}
+	${device.Desktop}{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		height: 281px;
+		width: 64vw;
+	}
+	${device.TabletHD}{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		height: 281px;
+		width: 64vw;
+	}${device.Tablet}{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		height: 281px;
+		width: 64vw;
+	}${device.MobileLandscape}{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		height: 281px;
+		width: 64vw;
+	}${device.MobilePortrait}{
+		position: absolute;
+		top: 20%;
+		left: 10%;
+		height: 281px;
+		width: 64vw;
+	}
+	padding: 0;
+	text-align: left;
 `
+
 export const mainHeadingStyle = () => `
-	${device.MobilePortrait}{
-		color: black; font-family: Helvetica; font-size: 4.0rem;
+	${device.DesktopHD}{
+		font-weight: bolder;
+		font-size: 8vw;
 	}
-	${device.MobileLandscape}{
-		color: black; font-family: Helvetica; font-size: 4.0rem;
+	${device.Desktop}{
+		font-weight: bolder;
+		font-size: 8vw;	
 	}
-	color: black; font-family: Helvetica; font-size: 5.0rem;
+	${device.TabletHD}{
+		font-weight: bolder;
+		font-size: 8vw;	
+	}${device.Tablet}{
+		font-weight: bolder;
+		font-size: 8vw;
+	}${device.MobileLandscape}{
+		font-weight: bolder;
+		font-size: 8vw;
+	}${device.MobilePortrait}{
+		font-weight: bolder;
+		font-size: 8vw;
+	}
+	color: black;
+	font-family: Helvetica;
+	margin: 0;
+	padding: 0;
 `
 
 export const subHeadingStyle = () => `
-	${device.MobilePortrait}{
-		color: gray; font-damily: Courier New; font-size: 1.3rem;
-		margin: auto 5% 3% 5%;
-	}
-	${device.MobileLandscape}{
-		color: gray; font-damily: Courier New; font-size: 1.3rem;
-		margin: auto 5% 3% 5%;
-	}
-	color: gray; font-damily: Courier New; font-size: 1.3rem; margin-top: 1%;
-`
-
-export const featureSectionStyle = () => `
-	${device.MobilePortrait}{
-		display: flex;
-		flex-direction: column;
-		height: 800px;
-		width: 100%;
-	}
-	${device.MobileLandscape}{
-		display: flex;
-		flex-direction: column;
-		height: 800px;
-		width: 100%;
-	}
-	${device.Tablet}{
-		display: flex;
-		flex-direction: column;
-		height: 800px;
-		width: 100%;
-	}
-	${device.TabletHD}{
-		display: flex;
-		flex-direction: column;
-		height: 800px;
-		width: 100%;
-	}
-	height: 400px;
-	width: 100%;
-	display: flex;
-	flex-direction: row;
-`
-
-export const featureContainerStyle = () => `
-	${device.MobilePortrait}{
-		width: 80%;
-		height: 31%;
-		border-top: 1px solid silver;
-		border-bottom: 1px solid silver;
-		margin: auto;
-	}
-	${device.MobileLandscape}{
-		width: 80%;
-		height: 31%;
-		border-top: 1px solid silver;
-		border-bottom: 1px solid silver;
-		margin: auto;
-	}
-	${device.Tablet}{
-		width: 80%;
-		height: 31%;
-		border-top: 1px solid silver;
-		border-bottom: 1px solid silver;
-		margin: 0 auto;
-	}
-	${device.TabletHD}{
-		width: 60%;
-		height: 30%;
-		border-top: 1px solid silver;
-		border-bottom: 1px solid silver;
-		margin: 5px auto;
+	${device.DesktopHD}{
+		font-size: 2.5vw;
 	}
 	${device.Desktop}{
-		height: 100%;
-		width: 30%;
-		border-left: 1px solid silver;
-		border-right: 1px solid silver;
-		margin: 0 auto;
-	}
-	${device.DesktopHD}{
-		height: 100%;
-		width: 30%;
-		border-left: 1px solid silver;
-		border-right: 1px solid silver;
-		margin: 0 auto;
-	}
-`
-
-export const featureLogoStyle = () => `
-	${device.MobilePortrait}{
-		height: 60%; width: 60%; margin: auto;
-	}
-	${device.MobileLandscape}{
-		height: 60%; width: 60%; margin: auto;
-	}
-	${device.Tablet}{
-		height: 60%; width: 60%; margin: auto;
+		font-size: 2.5vw;	
 	}
 	${device.TabletHD}{
-		height: 60%; width: 60%; margin: auto;
+		font-size: 2.5vw;	
+	}${device.Tablet}{
+		font-size: 2.5vw;
+	}${device.MobileLandscape}{
+		font-size: 2.5vw;
+	}${device.MobilePortrait}{
+		font-size: 2.5vw;
 	}
-	height: 60%; width: 80%; margin: auto;
+	color: gray;
+	font-family: Courier New;
+	margin: 0;
+	padding: 0;
+`
+
+export const authButtonStyle = () => `
+	background-color: black;
+	color: white;
+	font-family: Courier New;
+	font-size: 2vw;
+	text-align: center;
+	padding: 1% 5%;
+	height: auto;
 `
