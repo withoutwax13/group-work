@@ -1,73 +1,62 @@
 import React, { useRef } from 'react'
 
-// Temporary feature logos
-import friendsLogo from '../../assets/images/friends.png'
-import groupLogo from '../../assets/images/group.jpg'
-import chatLogo from '../../assets/images/chat.jpg'
-
 import { Element } from '../../components/Element'
 import Heading from '../../components/Heading'
 import Button from '../../components/Button'
 import GoogleAuth from '../../components/GoogleAuth'
-import Logo from '../../components/Logo'
 
 import { 
-			defaultStyle, 
-			heroSectionStyle, 
-			mainHeadingStyle, 
-			subHeadingStyle, 
-			featureSectionStyle, 
-			featureContainerStyle, 
-			featureLogoStyle 
+			defaultStyle,
+			heroSectionContainerStyle,
+			mainHeadingStyle,
+			subHeadingStyle,
+			authButtonStyle
 		} 
 			from './style'
 
 const Landing = ({...props}) => {
-	const onJoinClick = useRef()
+
+	const authLoginRef = useRef()
+
 	return (
 		<Element
-			css={defaultStyle()}
-			{...props}>
-				<Element
-					css={heroSectionStyle()}>
+			css={defaultStyle()}>
+			<Element
+				css={heroSectionContainerStyle}>
 					<Heading 
-						semantic='h1' 
+						as='h1'
 						customStyle={mainHeadingStyle()}>
-							work with groups
+							<span 
+								style={{color: 'red'}}>
+									you
+							</span>
+							're not alone
 					</Heading>
-					<Heading 
-						semantic='h3' 
-						customStyle={subHeadingStyle()}>
-							Connect to people with same interests, goals and motivation.	
-					</Heading>
-					<GoogleAuth 
+					<Element
+						css='margin: 5% 0;'>
+						<Heading
+							as='h3'
+							customStyle={subHeadingStyle()}>
+								PEOPLE LIKE <span 
+									style={{color: 'red'}}>
+										YOU
+								</span> ARE OUT THERE.
+						</Heading>
+						<Heading
+							as='h3'
+							customStyle={subHeadingStyle()}>
+								WE'LL FIND THEM FOR <span 
+									style={{color: 'red'}}>
+										YOU
+								</span>.
+						</Heading>
+					</Element>
+					<GoogleAuth
 						WrappedComponent={()=>
-											<Button 
-												type='auth'
-												onClick={onJoinClick.current} 
-												customStyle='font-size: 1.2rem; font-family: MS Sans Serif; margin: 10px auto 10px auto; height: 40px;'>
-													JOIN GROUP-WORK TODAY!
-											</Button>}
-						eventHandler={onJoinClick}/>
-				</Element>
-				<Element
-					css={featureSectionStyle()}>
-						<Element 
-							css={featureContainerStyle()}>
-								<Logo src={friendsLogo} customStyle={featureLogoStyle()}/>
-								<Heading customStyle='color: black;'>meet people with same interests and goals</Heading>
-						</Element>
-						<Element 
-							css={featureContainerStyle()}>
-								<Logo src={groupLogo} customStyle={featureLogoStyle()}/>
-								<Heading customStyle='color: black;'>create or join groups of your interests</Heading>
-						</Element>
-						<Element 
-							css={featureContainerStyle()}>
-								<Logo src={chatLogo} customStyle={featureLogoStyle()}/>
-								<Heading customStyle='color: black;'>communicate and achieve results</Heading>
-						</Element>
-				</Element>
+							<Button type='auth' customStyle={authButtonStyle()} onClick={authLoginRef.current}>JOIN GROUP-WORK</Button>
+						}
+						eventHandler={authLoginRef}/>
+			</Element>
 		</Element>
 	)
 }

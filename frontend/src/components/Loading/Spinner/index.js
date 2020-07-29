@@ -18,7 +18,8 @@ const defaultStyle = (trigger) => `
 const Spinner = (props) => {
 	const [ trigger, setTrigger ] = useState(false)
 	useEffect(()=>{
-		setTimeout(()=>setTrigger(!trigger), 500)
+		const timer = setTimeout(()=>setTrigger(!trigger), 500)
+		clearInterval(timer)
 	}, [trigger])
 	return (
 		<Element

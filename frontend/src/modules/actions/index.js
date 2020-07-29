@@ -1,4 +1,4 @@
-import { LOG_CLIENT, UNLOG_CLIENT, TOGGLE_MOBILE_TAB } from '../actionTypes'
+import { LOG_CLIENT, UNLOG_CLIENT, TOGGLE_MOBILE_TAB, SELECT_GROUP } from '../actionTypes'
 
 export const unlogClient = () => {
 	return {
@@ -29,5 +29,12 @@ export const logClient = (id, name, email, imageURL) => {
 export const toggleMobileTab = () => {
 	return {
 		type: TOGGLE_MOBILE_TAB
+	}
+}
+
+export const selectGroup = (groupData) => {
+	return {
+		type: SELECT_GROUP,
+		payload: groupData
 	}
 }

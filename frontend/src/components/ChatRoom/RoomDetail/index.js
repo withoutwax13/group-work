@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import { device } from '../../../utils/responsiveBreakpoints'
 
@@ -25,8 +26,19 @@ const defaultStyle = () => `
 `
 
 const RoomDetail = ({...props}) => {
-    const sampleGroupName = 'Insert Group Name Here' // mock data
-    const { customStyle, toggleMenu, toggleTab, ...rest } = props
+    const { customStyle, toggleMenu, toggleTab, ACTIVE_GROUP, ...rest } = props
+    const renderGroupName = () => {
+        if (ACTIVE_GROUP){
+            return ACTIVE_GROUP.length < 36 ? ACTIVE_GROUP : ACTIVE_GROUP
+                                                                        .split('')
+                                                                        .filter((ch, i)=>i < 36)
+                                                                        .concat(['...'])
+                                                                        .join('')
+        }
+        else {
+            return `Select a group`
+        }
+    }
     return (
         <Element
             css={customStyle ? defaultStyle() + customStyle : defaultStyle()}
@@ -39,7 +51,7 @@ const RoomDetail = ({...props}) => {
                     css='grid-area: roomName; margin: 0; padding: 0; display: flex; flex-direction: row; justify-content: space-around;'>
                     <Heading 
                         customStyle='margin: 10px auto; font-family: Helvetica;'>
-                            {sampleGroupName.length < 36 ? sampleGroupName : sampleGroupName.split('').filter((ch, i)=>i < 25).concat(['...']).join('')}
+                            {renderGroupName()}
                     </Heading>
                 </Element>
                 <Element
@@ -50,4 +62,10 @@ const RoomDetail = ({...props}) => {
     )
 }
 
-export default RoomDetail
+const mapStateToProps = ({ACTIVE_GROUP}) => {
+    return {
+        ACTIVE_GROUP: ACTIVE_GROUP.groupName
+    }
+}
+
+export default connect(mapStateToProps)(RoomDetail)
