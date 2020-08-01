@@ -11,39 +11,39 @@ export const heroSectionContainerStyle = () => `
 		position: absolute;
 		top: 20%;
 		left: 10%;
-		height: 281px;
+		height: auto;
 		width: 64vw;
 	}
 	${device.Desktop}{
 		position: absolute;
 		top: 20%;
 		left: 10%;
-		height: 281px;
+		height: auto;
 		width: 64vw;
 	}
 	${device.TabletHD}{
 		position: absolute;
 		top: 20%;
 		left: 10%;
-		height: 281px;
+		height: auto;
 		width: 64vw;
 	}${device.Tablet}{
 		position: absolute;
 		top: 20%;
 		left: 10%;
-		height: 281px;
+		height: auto;
 		width: 64vw;
 	}${device.MobileLandscape}{
 		position: absolute;
 		top: 20%;
 		left: 10%;
-		height: 281px;
+		height: auto;
 		width: 64vw;
 	}${device.MobilePortrait}{
 		position: absolute;
 		top: 20%;
 		left: 10%;
-		height: 281px;
+		height: auto;
 		width: 64vw;
 	}
 	padding: 0;
