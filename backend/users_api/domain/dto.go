@@ -11,6 +11,6 @@ type User struct {
 	LastName       string               `json:"lastName" bson:"lastName"`
 	FirstName      string               `json:"firstName" bson:"firstName"`
 	DateCreated    string               `json:"dateCreated" bson:"dateCreated"`
-	ProfilePicture string               `json:"profilePicture" bson:"profilePicture"`
-	JoinedGroupIDs []primitive.ObjectID `json:"joinedGroupIds" bson:"joinedGroupIds"`
+	ProfilePicture string               `json:"profilePicture,omitempty" bson:"profilePicture"`
+	JoinedGroupIDs []primitive.ObjectID `json:"joinedGroupIds,omitempty" bson:"joinedGroupIds"`
 }
