@@ -1,12 +1,16 @@
 package domain
 
+import (
+	"go.mongodb.org/mongo-driver/bson/primitive"
+)
+
 // User type ...
 type User struct {
-	ID             int64   `json:"id"`
-	Email          string  `json:"email"`
-	LastName       string  `json:"last_name"`
-	FirstName      string  `json:"first_name"`
-	DateCreated    string  `json:"date_created"`
-	ProfilePicture string  `json:"profile_picture"`
-	GroupsJoinedID []int64 `json:"groups_joined_id"`
+	ID             primitive.ObjectID   `json:"_id" bson:"_id"`
+	Email          string               `json:"email" bson:"email"`
+	LastName       string               `json:"lastName" bson:"lastName"`
+	FirstName      string               `json:"firstName" bson:"firstName"`
+	DateCreated    string               `json:"dateCreated" bson:"dateCreated"`
+	ProfilePicture string               `json:"profilePicture" bson:"profilePicture"`
+	JoinedGroupIDs []primitive.ObjectID `json:"joinedGroupIds" bson:"joinedGroupIds"`
 }
